@@ -2,9 +2,12 @@ package minggu7;
 
 public class PencarianMhs18 {
     
-        Mahasiswa18 listMHs[] = new Mahasiswa18[5];
+        Mahasiswa18 listMHs[];
         int idx;
-    
+    public PencarianMhs18(int jumMhs) {
+            listMHs = new Mahasiswa18[jumMhs];
+            idx = 0;
+        }
     void tambah (Mahasiswa18 m ){
         if (idx < listMHs.length){
             listMHs[idx] = m;
@@ -30,7 +33,23 @@ public class PencarianMhs18 {
             }
         }
         return posisi;
-    }  
+    } 
+    
+    public int findBinarySearch(int cari, int left, int right){
+        int mid;
+        if (right >= left){
+            mid = (left + right )/2;
+            if (cari == listMHs[mid].nim){
+                return (mid);
+            
+            }else if (listMHs[mid].nim < cari){
+                return findBinarySearch(cari, left, mid -1);
+            }else {
+                return findBinarySearch(cari, mid +1, right);
+            }
+        }
+        return -1;
+    }
     
     public void Tampilposisi(int x, int pos){
         if (pos!= -1){
@@ -51,4 +70,6 @@ public class PencarianMhs18 {
             System.out.println("data" + x + "tidak ditemukan");
         }
     }
+
+
 }

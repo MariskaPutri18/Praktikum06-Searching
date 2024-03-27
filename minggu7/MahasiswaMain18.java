@@ -5,11 +5,13 @@ public class MahasiswaMain18 {
         Scanner s = new Scanner (System.in);
         Scanner s1 = new Scanner(System.in);
 
-        PencarianMhs18 data = new PencarianMhs18();
-        int jumMhs = 5;
-
+       
+        System.out.print("Masukkan jumlah mahasiswa : ");
+        int jumMhs = s.nextInt();
+        PencarianMhs18 data = new PencarianMhs18(jumMhs);
+    
         System.out.println("-----------------------------------");
-        System.out.println("masukkan data mahasiswa secara urut dari NIM Terke");
+        System.out.println("masukkan data mahasiswa secara urut dari NIM Terkecil");
         for (int i = 0; i < jumMhs; i ++){
             System.out.println("-----------");
             System.out.print("Nim\t : ");
@@ -35,7 +37,12 @@ public class MahasiswaMain18 {
           int cari = s.nextInt();
           System.out.println(" Menggunakan sequential search");
           int posisi = data.findSeqSearch(cari);
-          
+          data.Tampilposisi(cari, posisi);
+          data.Tampildata(cari, posisi);
+
+          System.out.println("======================================");
+          System.out.println(" Menggunakan Binary search");
+          posisi = data.findBinarySearch(cari, 0, jumMhs-1);
           data.Tampilposisi(cari, posisi);
           data.Tampildata(cari, posisi);
     }
